@@ -19,10 +19,9 @@ function Ingredients() {
           amount: responseData[key].amount
         });
       }
-      //setUserIngredients(loadedIngredients)
+      setUserIngredients(loadedIngredients)
     });
-
-  });
+  }, []);
 
   const addIngredientHandler = ingredient => {
     fetch('https://react-hooks-update-64117.firebaseio.com/ingredients.json', {
