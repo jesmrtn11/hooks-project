@@ -12,27 +12,28 @@ const Search = React.memo(props => {
 
     setTimeout(() => {
 
-      if (enteredFilter)
-      const query = 
-      enteredFilter.length === 0 
-      ? '' 
-      : `?orderBy="title"&equalTo="${enteredFilter}"`;
+      if (enteredFilter === inputRef.current.value) {
+        const query = 
+        enteredFilter.length === 0 
+        ? '' 
+        : `?orderBy="title"&equalTo="${enteredFilter}"`;
 
-      fetch('https://react-hooks-update-64117.firebaseio.com/ingredients.json' + query).then(
-        response => response.json()
-      ).then(responseData => {
-        const loadedIngredients = [];
-        for (const key in responseData) {
-          loadedIngredients.push({
-            id: key,
-            title: responseData[key].title,
-            amount: responseData[key].amount
-          });
-        }
-        onLoadIngredients(loadedIngredients);
-      });
+        fetch('https://react-hooks-update-64117.firebaseio.com/ingredients.json' + query).then(
+          response => response.json()
+        ).then(responseData => {
+          const loadedIngredients = [];
+          for (const key in responseData) {
+            loadedIngredients.push({
+              id: key,
+              title: responseData[key].title,
+              amount: responseData[key].amount
+            });
+          }
+          onLoadIngredients(loadedIngredients);
+        });
+      }
     }, 500);
-  }, [enteredFilter, onLoadIngredients])
+  }, [enteredFilter, onLoadIngredients, inputRef])
 
   return (
     <section className="search">
