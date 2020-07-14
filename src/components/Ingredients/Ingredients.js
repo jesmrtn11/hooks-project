@@ -45,8 +45,8 @@ function Ingredients() {
         prevIngredients.filter(ingredient => ingredient.id !== ingredientId)
       );
     }).catch(error => {
-      setError(error.message);
-      setIsLoading(false);
+      setError(error.message); // sets the error
+      setIsLoading(false); // removes the spinner
     });
   };
 
