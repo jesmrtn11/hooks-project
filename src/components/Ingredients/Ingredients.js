@@ -46,12 +46,12 @@ function Ingredients() {
       );
     }).catch(error => {
       setError(error.message);
+      setIsLoading(false);
     });
   };
 
   const clearError = () => {
     setError(null);
-    setIsLoading(false);
     console.log("clearError function");
   } 
   
