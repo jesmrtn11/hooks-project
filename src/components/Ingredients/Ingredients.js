@@ -54,7 +54,7 @@ function Ingredients() {
 
   const addIngredientHandler = ingredient => {
     dispatchHttp({ type: 'SEND_REQUEST' });
-    setIsLoading(true);
+    //setIsLoading(true);
     fetch('https://react-hooks-update-64117.firebaseio.com/ingredients.json', {
       method: 'POST',
       body: JSON.stringify(ingredient),
@@ -87,7 +87,7 @@ function Ingredients() {
     }).catch(error => {
       dispatchHttp({ type: 'ERROR', errorMessage: 'Something went wrong!' }); // or error.message
       //setError(error.message); // sets the error
-      setIsLoading(false); // removes the spinner
+      //setIsLoading(false); // removes the spinner
     });
   };
 
