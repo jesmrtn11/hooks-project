@@ -11,7 +11,6 @@ const Auth = props => {
     authContext.login();
   };
 
-  
   return (
     <div className="auth">
       <Card>
